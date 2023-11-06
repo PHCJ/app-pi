@@ -1,9 +1,19 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, Image } from 'react-native';
+import Zoomable from '@dudigital/react-native-zoomable-view/src/ReactNativeZoomableView';
+
 
 export default function Map() {
   return (
     <View style={styles.container}>
-      <Text>Map</Text>
+      <Zoomable       
+        minZoom={0.725}
+        maxZoom={2}
+        zoomStep={1}
+        initialZoom={1.2}
+        inicialOffsetX={-500}
+      >
+        <Image source={require('../../assets/mapa-parque.gif')} style={styles.image}></Image>
+      </Zoomable>
     </View>
   );
 }
@@ -11,8 +21,12 @@ export default function Map() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  image: {
+    width: 1400,
+    height:500,
+    resizeMode:'contain',
   },
 });
